@@ -51,7 +51,7 @@ button{
   color:white;
   cursor:pointer;
   font-size:16px;
-  transition: transform 0.1s ease;
+  transition:transform .1s ease;
 }
 button:active{transform:scale(.97)}
 #story{
@@ -254,53 +254,52 @@ footer{
   <div class="gallery">
 
     <figure>
-      <img src="assets/foto1.jpg" alt="Atardecer en la playa">
+      <img src="foto1.jpg" alt="Atardecer en la playa">
       <figcaption>Un recuerdo para siempre</figcaption>
     </figure>
 
     <figure>
-      <img src="assets/foto2.jpg" alt="Juntos en el banco">
+      <img src="foto2.jpg" alt="Juntos en el banco">
       <figcaption>Mi lugar favorito</figcaption>
     </figure>
 
     <figure>
-      <img src="assets/foto3.jpg" alt="Cumpleaños especial">
+      <img src="foto3.jpg" alt="Cumpleaños especial">
       <figcaption>Celebrar tu vida</figcaption>
     </figure>
 
     <figure>
-      <img src="assets/foto4.jpg" alt="Abrazados en el jardín">
+      <img src="foto4.jpg" alt="Abrazados en el jardín">
       <figcaption>Una noche especial</figcaption>
     </figure>
 
     <figure>
-      <img src="assets/foto5.jpg" alt="Momento de flores">
+      <img src="foto5.jpg" alt="Momento de flores">
       <figcaption>Contigo, cualquier lugar</figcaption>
     </figure>
 
     <figure>
-      <img src="assets/foto6.jpg" alt="Reflejo en el espejo">
+      <img src="foto6.jpg" alt="Reflejo en el espejo">
       <figcaption>Momentos nuestros</figcaption>
     </figure>
 
     <figure>
-      <img src="assets/foto7.jpg" alt="Juntos en el corazón de flores">
+      <img src="foto7.jpg" alt="Juntos en el corazón de flores">
       <figcaption>Un corazón, dos personas</figcaption>
     </figure>
 
-    <!-- Ojo: esta imagen tiene extensión .png -->
     <figure>
-      <img src="assets/foto8.png" alt="Anillo y complicidad">
+      <img src="foto8.png" alt="Anillo y complicidad">
       <figcaption>Donde sea, contigo</figcaption>
     </figure>
 
     <figure>
-      <img src="assets/foto9.jpg" alt="Abrazo bajo la noche">
+      <img src="foto9.jpg" alt="Abrazo bajo la noche">
       <figcaption>Mi abrazo favorito</figcaption>
     </figure>
 
     <figure>
-      <img src="assets/foto10.jpg" alt="Nuestras manos entrelazadas">
+      <img src="foto10.jpg" alt="Nuestras manos entrelazadas">
       <figcaption>Mi felicidad</figcaption>
     </figure>
 
@@ -381,8 +380,8 @@ footer{
   <p>
     Pulsa reproducir para escuchar nuestra canción.
   </p>
-  <audio controls preload="none">
-    <source src="assets/cancion.mp3" type="audio/mpeg">
+  <audio id="bg-audio" controls preload="metadata">
+    <source src="cancion.mp3" type="audio/mpeg">
     Tu navegador no admite audio.
   </audio>
 </section>
@@ -421,11 +420,19 @@ document.addEventListener("DOMContentLoaded", function() {
   const openButton = document.getElementById("open");
   const cover = document.getElementById("cover");
   const story = document.getElementById("story");
+  const audio = document.getElementById("bg-audio");
 
   if (openButton && cover && story) {
     openButton.addEventListener("click", function() {
       cover.style.display = "none";
       story.style.display = "block";
+
+      // Reproduce automáticamente el audio al abrir la carta
+      if (audio) {
+        audio.play().catch(function() {
+          console.log("El navegador esperará a que el usuario presione play manualmente.");
+        });
+      }
 
       window.scrollTo({
         top: 0,
