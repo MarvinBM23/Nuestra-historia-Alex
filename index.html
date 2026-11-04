@@ -197,6 +197,7 @@ figure{
   box-shadow:0 8px 25px rgba(0,0,0,0.14);
   transition:all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position:relative;
+  cursor:pointer;
 }
 figure:nth-child(odd){
   transform:rotate(-1.8deg);
@@ -235,6 +236,15 @@ figcaption{
   font-style:italic;
   margin-top:14px;
   color:#634b41;
+}
+.click-hint{
+  display:block;
+  font-size:11px;
+  letter-spacing:1px;
+  color:#9a7858;
+  margin-top:6px;
+  text-transform:uppercase;
+  font-style:normal;
 }
 
 /* Carta */
@@ -337,6 +347,100 @@ audio{
   100%{box-shadow:0 0 0 0 rgba(223,200,176,0)}
 }
 
+/* MODAL / POPUP DE FOTO CON MENSAJE ROMÁNTICO */
+#photo-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(20, 11, 10, 0.88);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  z-index:10000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.4s ease;
+}
+#photo-modal.active{
+  opacity:1;
+  pointer-events:auto;
+}
+.modal-card{
+  background:#f7efe2;
+  border:1px solid #c9b089;
+  max-width:520px;
+  width:100%;
+  padding:18px 18px 24px;
+  border-radius:4px;
+  box-shadow:0 25px 70px rgba(0,0,0,0.8), 0 0 40px rgba(199,168,121,0.2);
+  text-align:center;
+  position:relative;
+  transform:scale(0.92) translateY(20px);
+  transition:transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+#photo-modal.active .modal-card{
+  transform:scale(1) translateY(0);
+}
+.modal-close-btn{
+  position:absolute;
+  top:-14px;
+  right:-14px;
+  width:36px;
+  height:36px;
+  background:#743f43;
+  border:2px solid #f7efe2;
+  color:#fff;
+  font-size:18px;
+  font-family:sans-serif;
+  border-radius:50%;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 4px 15px rgba(0,0,0,0.4);
+  transition:transform 0.2s;
+}
+.modal-close-btn:hover{
+  transform:scale(1.15) rotate(90deg);
+}
+.modal-img-wrapper{
+  width:100%;
+  max-height:55vh;
+  overflow:hidden;
+  border-radius:2px;
+  background:#e7ded1;
+  box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+.modal-img-wrapper img{
+  width:100%;
+  height:100%;
+  max-height:55vh;
+  object-fit:contain;
+  display:block;
+}
+.modal-quote{
+  margin-top:18px;
+  padding:12px 16px;
+  background:#eee1c9;
+  border-left:3px solid #743f43;
+  border-right:3px solid #743f43;
+  color:#432f28;
+  font-style:italic;
+  font-size:16.5px;
+  line-height:1.75;
+  border-radius:2px;
+}
+.modal-title{
+  color:#743f43;
+  font-size:13px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-top:14px;
+  font-weight:bold;
+}
+
 .final{
   background:#eee1c9;
   padding:40px 20px;
@@ -355,6 +459,8 @@ footer{
   figure{padding:8px 8px 24px}
   figcaption{font-size:11.5px;margin-top:8px}
   .letter{padding:20px}
+  .modal-card{padding:14px 14px 20px}
+  .modal-quote{font-size:15px;line-height:1.6}
 }
 </style>
 </head>
@@ -368,6 +474,18 @@ footer{
 <button id="floating-music-btn" class="pulse-wave" title="Pausar / Reproducir Música">
   <span id="floating-icon">🎵</span>
 </button>
+
+<!-- VENTANA MODAL EMERGENTE PARA LAS FOTOS -->
+<div id="photo-modal" aria-hidden="true">
+  <div class="modal-card">
+    <button class="modal-close-btn" id="modal-close" title="Cerrar">✕</button>
+    <div class="modal-img-wrapper">
+      <img id="modal-image" src="" alt="Recuerdo ampliado">
+    </div>
+    <div class="modal-title" id="modal-title"></div>
+    <div class="modal-quote" id="modal-quote"></div>
+  </div>
+</div>
 
 <!-- PORTADA -->
 <div id="cover" class="cover">
@@ -486,57 +604,58 @@ footer{
   <div class="center">
     <span class="kicker">Nuestro pequeño museo</span>
     <h2>Instantes que quiero conservar</h2>
+    <p style="font-size:14px; color:#856956; margin-top:-10px;">(Toca cualquier foto para leer su mensaje secreto ✨)</p>
   </div>
 
   <div class="gallery">
-    <figure>
+    <figure data-title="El atardecer más bonito" data-quote="«De todos los atardeceres del mundo, mi favorito siempre será aquel en el que pueda verte sonreír a mi lado.»">
       <img src="foto1.jpg" alt="Atardecer en la playa">
-      <figcaption>Un recuerdo para siempre</figcaption>
+      <figcaption>Un recuerdo para siempre <span class="click-hint">Toca para abrir ✨</span></figcaption>
     </figure>
 
-    <figure>
+    <figure data-title="Mi reina consentida" data-quote="«Verte feliz y celebrarte cada día es el mayor regalo que la vida me ha dado. Eres mi alegría entera.»">
       <img src="foto2.jpg" alt="Juntos en el banco">
-      <figcaption>Mi lugar favorito</figcaption>
+      <figcaption>Mi lugar favorito <span class="click-hint">Toca para abrir ✨</span></figcaption>
     </figure>
 
-    <figure>
+    <figure data-title="Celebrando tu existencia" data-quote="«Que cada año que cumplas esté lleno de luz, risas y la certeza de que nunca caminarás sola, mi amor.»">
       <img src="foto3.jpg" alt="Cumpleaños especial">
-      <figcaption>Celebrar tu vida</figcaption>
+      <figcaption>Celebrar tu vida <span class="click-hint">Toca para abrir ✨</span></figcaption>
     </figure>
 
-    <figure>
+    <figure data-title="La calidez de un beso" data-quote="«En tu abrazo encontré el hogar donde siempre quiero volver; un refugio de paz que calma cualquier tormenta.»">
       <img src="foto4.jpg" alt="Abrazados en el jardín">
-      <figcaption>Una noche especial</figcaption>
+      <figcaption>Una noche especial <span class="click-hint">Toca para abrir ✨</span></figcaption>
     </figure>
 
-    <figure>
+    <figure data-title="Flores para mi copito" data-quote="«Si tuviera que elegirte un millón de veces más, me volvería a arrodillar con la misma certeza y el mismo amor.»">
       <img src="foto5.jpg" alt="Momento de flores">
-      <figcaption>Contigo, cualquier lugar</figcaption>
+      <figcaption>Contigo, cualquier lugar <span class="click-hint">Toca para abrir ✨</span></figcaption>
     </figure>
 
-    <figure>
+    <figure data-title="Complicidad en el reflejo" data-quote="«No solo somos pareja, somos mejores amigos, risas compartidas y el mejor equipo que jamás imaginé tener.»">
       <img src="foto6.jpg" alt="Reflejo en el espejo">
-      <figcaption>Momentos nuestros</figcaption>
+      <figcaption>Momentos nuestros <span class="click-hint">Toca para abrir ✨</span></figcaption>
     </figure>
 
-    <figure>
+    <figure data-title="Un corazón hecho para dos" data-quote="«Dicen que las casualidades no existen, y cuando te miro dentro de este corazón, sé que nuestro destino estaba escrito.»">
       <img src="foto7.jpg" alt="Juntos en el corazón de flores">
-      <figcaption>Un corazón, dos personas</figcaption>
+      <figcaption>Un corazón, dos personas <span class="click-hint">Toca para abrir ✨</span></figcaption>
     </figure>
 
-    <figure>
+    <figure data-title="Nuestra promesa eterna" data-quote="«En la quietud de la noche o en medio del ruido, el brillo de nuestra promesa es mi faro y mi verdad.»">
       <img src="foto8.png" alt="Anillo y complicidad">
-      <figcaption>Donde sea, contigo</figcaption>
+      <figcaption>Donde sea, contigo <span class="click-hint">Toca para abrir ✨</span></figcaption>
     </figure>
 
-    <figure>
+    <figure data-title="Bajo el cielo nocturno" data-quote="«Las luces de toda la ciudad no se comparan con el brillo que tienen tus ojos cuando me miras.»">
       <img src="foto9.jpg" alt="Abrazo bajo la noche">
-      <figcaption>Mi abrazo favorito</figcaption>
+      <figcaption>Mi abrazo favorito <span class="click-hint">Toca para abrir ✨</span></figcaption>
     </figure>
 
-    <figure>
+    <figure data-title="Mano a mano siempre" data-quote="«Mientras sostenga tu mano, sé que no habrá camino demasiado largo ni desafío que no podamos superar juntos.»">
       <img src="foto10.jpg" alt="Nuestras manos entrelazadas">
-      <figcaption>Mi felicidad</figcaption>
+      <figcaption>Mi felicidad <span class="click-hint">Toca para abrir ✨</span></figcaption>
     </figure>
   </div>
 </section>
@@ -660,7 +779,7 @@ footer{
 
 </main>
 
-<!-- SCRIPTS: ESTRELLAS, AUDIO Y ANIMACIONES -->
+<!-- SCRIPTS: ESTRELLAS, AUDIO, ANIMACIONES Y MODAL -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -730,9 +849,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   if (openButton && cover && story) {
     openButton.addEventListener("click", function() {
-      // Inicia música en el momento exacto del click
       playMusic();
-
       cover.classList.add("hidden");
 
       setTimeout(function() {
@@ -756,7 +873,48 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   window.addEventListener("scroll", checkScroll);
 
-  // --- 4. CANVAS DE DESTELLOS DE ESTRELLAS DORADAS ---
+  // --- 4. MODAL POPUP PARA LAS FOTOS ---
+  const modal = document.getElementById("photo-modal");
+  const modalImg = document.getElementById("modal-image");
+  const modalTitle = document.getElementById("modal-title");
+  const modalQuote = document.getElementById("modal-quote");
+  const modalClose = document.getElementById("modal-close");
+  const figures = document.querySelectorAll(".gallery figure");
+
+  figures.forEach(function(fig) {
+    fig.addEventListener("click", function() {
+      const img = fig.querySelector("img");
+      const title = fig.getAttribute("data-title") || "";
+      const quote = fig.getAttribute("data-quote") || "";
+
+      if (img && modal) {
+        modalImg.src = img.src;
+        modalTitle.textContent = title;
+        modalQuote.textContent = quote;
+        modal.classList.add("active");
+        modal.setAttribute("aria-hidden", "false");
+      }
+    });
+  });
+
+  function closeModal() {
+    if (modal) {
+      modal.classList.remove("active");
+      modal.setAttribute("aria-hidden", "true");
+    }
+  }
+
+  if (modalClose) modalClose.addEventListener("click", closeModal);
+  if (modal) {
+    modal.addEventListener("click", function(e) {
+      if (e.target === modal) closeModal();
+    });
+  }
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") closeModal();
+  });
+
+  // --- 5. CANVAS DE DESTELLOS DE ESTRELLAS DORADAS ---
   const canvas = document.getElementById("stars-canvas");
   const ctx = canvas.getContext("2d");
   let width, height;
