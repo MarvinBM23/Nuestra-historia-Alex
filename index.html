@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,128 +10,131 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
- margin:0;
- background:#30221f;
- color:#49332b;
- font-family:Georgia,"Times New Roman",serif;
+  margin:0;
+  background:#30221f;
+  color:#49332b;
+  font-family:Georgia,"Times New Roman",serif;
 }
 .cover{
- min-height:100vh;
- display:grid;
- place-items:center;
- padding:24px;
- text-align:center;
- color:#f8ecd8;
- background:radial-gradient(ellipse,#744a40,#30221f);
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  padding:24px;
+  text-align:center;
+  color:#f8ecd8;
+  background:radial-gradient(ellipse,#744a40,#30221f);
 }
 .envelope{
- width:100%;
- max-width:650px;
- padding:55px 20px;
- border:1px solid #c7a879;
- outline:1px solid #c7a879;
- outline-offset:7px;
- background:#3c2925;
+  width:100%;
+  max-width:650px;
+  padding:55px 20px;
+  border:1px solid #c7a879;
+  outline:1px solid #c7a879;
+  outline-offset:7px;
+  background:#3c2925;
 }
 .envelope span,.kicker{
- font-size:11px;
- letter-spacing:3px;
- color:#b58b65;
+  font-size:11px;
+  letter-spacing:3px;
+  color:#b58b65;
 }
 .envelope h1{
- font-size:clamp(42px,9vw,76px);
- font-weight:normal;
- line-height:1;
+  font-size:clamp(42px,9vw,76px);
+  font-weight:normal;
+  line-height:1;
 }
 .envelope p{font-style:italic;line-height:1.7}
 button{
- padding:14px 25px;
- background:#7b4143;
- border:1px solid #c8a574;
- color:white;
- cursor:pointer;
- font-size:16px;
+  padding:14px 25px;
+  background:#7b4143;
+  border:1px solid #c8a574;
+  color:white;
+  cursor:pointer;
+  font-size:16px;
+  transition: transform 0.1s ease;
 }
 button:active{transform:scale(.97)}
 #story{
- display:none;
- max-width:900px;
- margin:25px auto;
- padding:35px;
- background:#f4ead7;
- box-shadow:0 20px 70px #0008;
+  display:none;
+  max-width:900px;
+  margin:25px auto;
+  padding:35px;
+  background:#f4ead7;
+  box-shadow:0 20px 70px #0008;
 }
 section{
- padding:35px 10px;
- border-bottom:1px dashed #bda27b;
+  padding:35px 10px;
+  border-bottom:1px dashed #bda27b;
 }
 .center{text-align:center}
 h2{
- color:#743f43;
- font-size:clamp(30px,6vw,46px);
- font-weight:normal;
+  color:#743f43;
+  font-size:clamp(30px,6vw,46px);
+  font-weight:normal;
 }
 h3{color:#743f43}
 p{font-size:17px;line-height:1.85}
 .gallery{
- display:grid;
- grid-template-columns:repeat(2,minmax(0,1fr));
- gap:22px;
- margin-top:25px;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:22px;
+  margin-top:25px;
 }
 figure{
- margin:0;
- padding:9px 9px 30px;
- background:#fffdf7;
- box-shadow:0 5px 15px #0002;
- transform:rotate(-1deg);
- transition:.25s;
+  margin:0;
+  padding:9px 9px 30px;
+  background:#fffdf7;
+  box-shadow:0 5px 15px #0002;
+  transform:rotate(-1deg);
+  transition:.25s;
 }
 figure:nth-child(even){transform:rotate(2deg)}
 figure:hover{transform:rotate(0) scale(1.02)}
 figure img{
- display:block;
- width:100%;
- aspect-ratio:4/5;
- object-fit:cover;
+  display:block;
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  object-position:center;
+  background:#eee;
 }
 figcaption{
- text-align:center;
- font-size:13px;
- font-style:italic;
- margin-top:12px;
+  text-align:center;
+  font-size:13px;
+  font-style:italic;
+  margin-top:12px;
 }
 .letter{
- padding:25px;
- background:#ecddc3;
- border:1px solid #c8ad83;
+  padding:25px;
+  background:#ecddc3;
+  border:1px solid #c8ad83;
 }
 .signature{
- color:#743f43;
- font-size:22px;
- font-style:italic;
+  color:#743f43;
+  font-size:22px;
+  font-style:italic;
 }
 .poem{
- text-align:center;
- color:#743f43;
- font-size:clamp(20px,4vw,29px);
- font-style:italic;
- line-height:1.8;
- padding:20px 5px;
+  text-align:center;
+  color:#743f43;
+  font-size:clamp(20px,4vw,29px);
+  font-style:italic;
+  line-height:1.8;
+  padding:20px 5px;
 }
 .final{background:#efe1c8;padding:35px 15px}
 audio{width:100%;margin-top:15px}
 footer{
- text-align:center;
- padding:25px;
- color:#806c5b;
- font-style:italic;
+  text-align:center;
+  padding:25px;
+  color:#806c5b;
+  font-style:italic;
 }
 @media(max-width:560px){
- #story{margin:0;padding:18px}
- .gallery{gap:13px}
- figure{padding:7px 7px 25px}
- figcaption{font-size:12px}
+  #story{margin:0;padding:18px}
+  .gallery{gap:13px}
+  figure{padding:7px 7px 25px}
+  figcaption{font-size:12px}
 }
 </style>
 </head>
@@ -141,272 +143,273 @@ footer{
 
 <!-- PORTADA -->
 <div id="cover" class="cover">
- <div class="envelope">
-  <span>04 · NOVIEMBRE · 2023</span>
-  <h1>Nuestra historia,<br>Alex</h1>
-  <p>
-   Hay encuentros que parecen pequeños<br>
-   hasta que se convierten en toda una vida.
-  </p>
-  <button id="open">Abrir esta carta ♡</button>
- </div>
+  <div class="envelope">
+    <span>04 · NOVIEMBRE · 2023</span>
+    <h1>Nuestra historia,<br>Alex</h1>
+    <p>
+      Hay encuentros que parecen pequeños<br>
+      hasta que se convierten en toda una vida.
+    </p>
+    <button id="open">Abrir esta carta ♡</button>
+  </div>
 </div>
 
 <!-- HISTORIA -->
 <main id="story">
 
 <section class="center">
- <span class="kicker">Para Michelle, con todo mi amor</span>
- <h2>Tres años de nosotros</h2>
- <p>
-  Si alguien me hubiera dicho que una reunión
-  de staff cambiaría tanto mi vida, quizás no
-  lo habría imaginado.
- </p>
- <p>
-  Pero aquel día apareció alguien a quien
-  quise conocer un poquito más.
- </p>
- <h3>Feliz aniversario, mi copito de nieve. ❤️</h3>
+  <span class="kicker">Para Michelle, con todo mi amor</span>
+  <h2>Tres años de nosotros</h2>
+  <p>
+    Si alguien me hubiera dicho que una reunión
+    de staff cambiaría tanto mi vida, quizás no
+    lo habría imaginado.
+  </p>
+  <p>
+    Pero aquel día apareció alguien a quien
+    quise conocer un poquito más.
+  </p>
+  <h3>Feliz aniversario, mi copito de nieve. ❤️</h3>
 </section>
 
 <section>
- <span class="kicker">Capítulo I</span>
- <h2>Una coincidencia llamada UltimateCon</h2>
- <p>
-  Yo llevaba años formando parte del staff de UltimateCon.
-  Tú acababas de incorporarte. En una reunión cruzamos
-  unas pocas palabras, pero algo de ti se quedó dando
-  vueltas en mi cabeza.
- </p>
- <p>
-  Cuando llegó el evento, casi me convertí en tu
-  guardaespaldas. Estuve pendiente de ti y aquella
-  atracción inicial se hizo todavía más grande.
- </p>
+  <span class="kicker">Capítulo I</span>
+  <h2>Una coincidencia llamada UltimateCon</h2>
+  <p>
+    Yo llevaba años formando parte del staff de UltimateCon.
+    Tú acababas de incorporarte. En una reunión cruzamos
+    unas pocas palabras, pero algo de ti se quedó dando
+    vueltas en mi cabeza.
+  </p>
+  <p>
+    Cuando llegó el evento, casi me convertí en tu
+    guardaespaldas. Estuve pendiente de ti y aquella
+    atracción inicial se hizo todavía más grande.
+  </p>
 </section>
 
 <section>
- <span class="kicker">Capítulo II</span>
- <h2>Un mensaje lo cambió todo</h2>
- <p>
-  Semanas después encontré la excusa perfecta:
-  aquellos audios que habías grabado en mi celular.
-  Decidí escribirte y sacar conversación.
- </p>
- <p>
-  Lo que comenzó con un mensaje terminó convirtiéndose
-  en largas conversaciones sobre nuestros gustos,
-  ideas y sueños.
- </p>
+  <span class="kicker">Capítulo II</span>
+  <h2>Un mensaje lo cambió todo</h2>
+  <p>
+    Semanas después encontré la excusa perfecta:
+    aquellos audios que habías grabado en mi celular.
+    Decidí escribirte y sacar conversación.
+  </p>
+  <p>
+    Lo que comenzó con un mensaje terminó convirtiéndose
+    en largas conversaciones sobre nuestros gustos,
+    ideas y sueños.
+  </p>
 </section>
 
 <section>
- <span class="kicker">Capítulo III</span>
- <h2>Los kilómetros valieron la pena</h2>
- <p>
-  Cuando llegó el after party y se te complicaba asistir,
-  me ofrecí a buscarte. Vivías a unos 20 kilómetros,
-  pero la distancia no pesó demasiado.
- </p>
- <p>
-  Quería que pudieras ir. Quería compartir contigo
-  y seguir conociéndote.
- </p>
+  <span class="kicker">Capítulo III</span>
+  <h2>Los kilómetros valieron la pena</h2>
+  <p>
+    Cuando llegó el after party y se te complicaba asistir,
+    me ofrecí a buscarte. Vivías a unos 20 kilómetros,
+    pero la distancia no pesó demasiado.
+  </p>
+  <p>
+    Quería que pudieras ir. Quería compartir contigo
+    y seguir conociéndote.
+  </p>
 </section>
 
 <section>
- <span class="kicker">Capítulo IV</span>
- <h2>One Piece Bar</h2>
- <p>
-  Después del after reuní el valor para invitarte a salir.
-  Aceptaste.
- </p>
- <p>
-  Hubo un momento en el que te tuve en mi regazo y pude
-  tomar tu mano. Sentí una química que nunca había
-  sentido con nadie. En ese instante entendí que
-  me estaba enamorando de ti.
- </p>
+  <span class="kicker">Capítulo IV</span>
+  <h2>One Piece Bar</h2>
+  <p>
+    Después del after reuní el valor para invitarte a salir.
+    Aceptaste.
+  </p>
+  <p>
+    Hubo un momento en el que te tuve en mi regazo y pude
+    tomar tu mano. Sentí una química que nunca había
+    sentido con nadie. En ese instante entendí que
+    me estaba enamorando de ti.
+  </p>
 </section>
 
 <section>
- <span class="kicker">Capítulo V</span>
- <h2>04 de noviembre de 2023</h2>
- <p>
-  Estábamos acostados en mi camita cuando decidí
-  preguntarte si querías ser mi novia.
- </p>
- <p>
-  No necesitaba un escenario perfecto.
-  Lo importante era que fueras tú.
- </p>
- <h3>Ese día comenzó nuestro nosotros. ❤️</h3>
+  <span class="kicker">Capítulo V</span>
+  <h2>04 de noviembre de 2023</h2>
+  <p>
+    Estábamos acostados en mi camita cuando decidí
+    preguntarte si querías ser mi novia.
+  </p>
+  <p>
+    No necesitaba un escenario perfecto.
+    Lo importante era que fueras tú.
+  </p>
+  <h3>Ese día comenzó nuestro nosotros. ❤️</h3>
 </section>
 
 <!-- GALERÍA -->
 <section>
- <span class="kicker">Nuestro pequeño museo</span>
- <h2>Instantes que quiero conservar</h2>
+  <span class="kicker">Nuestro pequeño museo</span>
+  <h2>Instantes que quiero conservar</h2>
 
- <div class="gallery">
+  <div class="gallery">
 
-  <figure>
-   <img src="assets/foto1.jpg" alt="Nuestro recuerdo 1">
-   <figcaption>Un recuerdo para siempre</figcaption>
-  </figure>
+    <figure>
+      <img src="assets/foto1.jpg" alt="Atardecer en la playa">
+      <figcaption>Un recuerdo para siempre</figcaption>
+    </figure>
 
-  <figure>
-   <img src="assets/foto2.jpg" alt="Nuestro recuerdo 2">
-   <figcaption>Mi lugar favorito</figcaption>
-  </figure>
+    <figure>
+      <img src="assets/foto2.jpg" alt="Juntos en el banco">
+      <figcaption>Mi lugar favorito</figcaption>
+    </figure>
 
-  <figure>
-   <img src="assets/foto3.jpg" alt="Nuestro recuerdo 3">
-   <figcaption>Celebrar tu vida</figcaption>
-  </figure>
+    <figure>
+      <img src="assets/foto3.jpg" alt="Cumpleaños especial">
+      <figcaption>Celebrar tu vida</figcaption>
+    </figure>
 
-  <figure>
-   <img src="assets/foto4.jpg" alt="Nuestro recuerdo 4">
-   <figcaption>Una noche especial</figcaption>
-  </figure>
+    <figure>
+      <img src="assets/foto4.jpg" alt="Abrazados en el jardín">
+      <figcaption>Una noche especial</figcaption>
+    </figure>
 
-  <figure>
-   <img src="assets/foto5.jpg" alt="Nuestro recuerdo 5">
-   <figcaption>Contigo, cualquier lugar</figcaption>
-  </figure>
+    <figure>
+      <img src="assets/foto5.jpg" alt="Momento de flores">
+      <figcaption>Contigo, cualquier lugar</figcaption>
+    </figure>
 
-  <figure>
-   <img src="assets/foto6.jpg" alt="Nuestro recuerdo 6">
-   <figcaption>Momentos nuestros</figcaption>
-  </figure>
+    <figure>
+      <img src="assets/foto6.jpg" alt="Reflejo en el espejo">
+      <figcaption>Momentos nuestros</figcaption>
+    </figure>
 
-  <figure>
-   <img src="assets/foto7.jpg" alt="Nuestro recuerdo 7">
-   <figcaption>Un corazón, dos personas</figcaption>
-  </figure>
+    <figure>
+      <img src="assets/foto7.jpg" alt="Juntos en el corazón de flores">
+      <figcaption>Un corazón, dos personas</figcaption>
+    </figure>
 
-  <figure>
-   <img src="assets/foto8.jpg" alt="Nuestro recuerdo 8">
-   <figcaption>Donde sea, contigo</figcaption>
-  </figure>
+    <!-- Ojo: esta imagen tiene extensión .png -->
+    <figure>
+      <img src="assets/foto8.png" alt="Anillo y complicidad">
+      <figcaption>Donde sea, contigo</figcaption>
+    </figure>
 
-  <figure>
-   <img src="assets/foto9.jpg" alt="Nuestro recuerdo 9">
-   <figcaption>Mi abrazo favorito</figcaption>
-  </figure>
+    <figure>
+      <img src="assets/foto9.jpg" alt="Abrazo bajo la noche">
+      <figcaption>Mi abrazo favorito</figcaption>
+    </figure>
 
-  <figure>
-   <img src="assets/foto10.jpg" alt="Nuestro recuerdo 10">
-   <figcaption>Mi felicidad</figcaption>
-  </figure>
+    <figure>
+      <img src="assets/foto10.jpg" alt="Nuestras manos entrelazadas">
+      <figcaption>Mi felicidad</figcaption>
+    </figure>
 
- </div>
+  </div>
 </section>
 
 <!-- CARTA -->
 <section>
- <span class="kicker">Una carta para ti</span>
- <h2>Mi querida Michelle</h2>
+  <span class="kicker">Una carta para ti</span>
+  <h2>Mi querida Michelle</h2>
 
- <div class="letter">
-  <p>Mi copito de nieve:</p>
+  <div class="letter">
+    <p>Mi copito de nieve:</p>
 
-  <p>
-   A veces pienso en lo curioso que fue encontrarte.
-   Yo solo fui a una reunión, después a un evento,
-   luego envié un mensaje... y sin darme cuenta
-   estaba acercándome a una de las personas
-   más importantes de mi vida.
-  </p>
+    <p>
+      A veces pienso en lo curioso que fue encontrarte.
+      Yo solo fui a una reunión, después a un evento,
+      luego envié un mensaje... y sin darme cuenta
+      estaba acercándome a una de las personas
+      más importantes de mi vida.
+    </p>
 
-  <p>
-   Me encanta recordar cómo todo fue tomando forma:
-   las conversaciones, las ganas de verte, aquel viaje
-   para buscarte, nuestra primera cita y ese instante
-   en el que tomar tu mano me hizo sentir que había
-   algo distinto entre nosotros.
-  </p>
+    <p>
+      Me encanta recordar cómo todo fue tomando forma:
+      las conversaciones, las ganas de verte, aquel viaje
+      para buscarte, nuestra primera cita y ese instante
+      en el que tomar tu mano me hizo sentir que había
+      algo distinto entre nosotros.
+    </p>
 
-  <p>
-   Gracias por estos tres años. Por los recuerdos
-   que ya tenemos y por todos los que todavía
-   nos esperan.
-  </p>
+    <p>
+      Gracias por estos tres años. Por los recuerdos
+      que ya tenemos y por todos los que todavía
+      nos esperan.
+    </p>
 
-  <p>
-   Si pudiera volver a aquella reunión de UltimateCon
-   sabiendo todo lo que vendría, volvería a acercarme.
-   Volvería a buscar conversación. Volvería a recorrer
-   esos kilómetros. Y volvería a elegirte.
-  </p>
+    <p>
+      Si pudiera volver a aquella reunión de UltimateCon
+      sabiendo todo lo que vendría, volvería a acercarme.
+      Volvería a buscar conversación. Volvería a recorrer
+      esos kilómetros. Y volvería a elegirte.
+    </p>
 
-  <p class="signature">
-   Con todo mi amor,<br>
-   Marvin ❤️
-  </p>
- </div>
+    <p class="signature">
+      Con todo mi amor,<br>
+      Marvin ❤️
+    </p>
+  </div>
 </section>
 
 <!-- POEMA -->
 <section>
- <span class="kicker">Un poema para ti</span>
- <h2>Volvería a encontrarte</h2>
+  <span class="kicker">Un poema para ti</span>
+  <h2>Volvería a encontrarte</h2>
 
- <div class="poem">
-  Entre tantas personas,<br>
-  tantos lugares y casualidades,<br>
-  la vida cruzó nuestros caminos<br>
-  en medio de una reunión cualquiera.<br><br>
+  <div class="poem">
+    Entre tantas personas,<br>
+    tantos lugares y casualidades,<br>
+    la vida cruzó nuestros caminos<br>
+    en medio de una reunión cualquiera.<br><br>
 
-  Yo no sabía tu historia,<br>
-  tú no conocías la mía;<br>
-  pero bastó una conversación<br>
-  para querer descubrir cada página.<br><br>
+    Yo no sabía tu historia,<br>
+    tú no conocías la mía;<br>
+    pero bastó una conversación<br>
+    para querer descubrir cada página.<br><br>
 
-  Y si el tiempo me llevara al comienzo,<br>
-  no cambiaría ni la ruta ni el destino:<br>
-  volvería a recorrer esos kilómetros,<br>
-  solo para encontrarme contigo.
- </div>
+    Y si el tiempo me llevara al comienzo,<br>
+    no cambiaría ni la ruta ni el destino:<br>
+    volvería a recorrer esos kilómetros,<br>
+    solo para encontrarme contigo.
+  </div>
 </section>
 
 <!-- MÚSICA -->
 <section>
- <span class="kicker">Nuestra banda sonora</span>
- <h2>Una canción para nosotros</h2>
- <p>
-  Pulsa reproducir para escuchar nuestra canción.
- </p>
- <audio controls preload="none">
-  <source src="assets/cancion.mp3" type="audio/mpeg">
-  Tu navegador no admite audio.
- </audio>
+  <span class="kicker">Nuestra banda sonora</span>
+  <h2>Una canción para nosotros</h2>
+  <p>
+    Pulsa reproducir para escuchar nuestra canción.
+  </p>
+  <audio controls preload="none">
+    <source src="assets/cancion.mp3" type="audio/mpeg">
+    Tu navegador no admite audio.
+  </audio>
 </section>
 
 <!-- FINAL -->
 <section class="final center">
- <span class="kicker">Nuestra historia continúa</span>
- <h2>Felices tres años, mi amor</h2>
+  <span class="kicker">Nuestra historia continúa</span>
+  <h2>Felices tres años, mi amor</h2>
 
- <p>
-  Hoy celebro haberte conocido, haberme atrevido
-  a escribirte y todo lo que hemos construido
-  desde entonces.
- </p>
+  <p>
+    Hoy celebro haberte conocido, haberme atrevido
+    a escribirte y todo lo que hemos construido
+    desde entonces.
+  </p>
 
- <div class="poem">
-  De todos los caminos posibles,<br>
-  mi favorito sigue siendo<br>
-  el que me lleva a ti.
- </div>
+  <div class="poem">
+    De todos los caminos posibles,<br>
+    mi favorito sigue siendo<br>
+    el que me lleva a ti.
+  </div>
 
- <h3>Te amo, Michelle. ❤️</h3>
- <p>Que nos queden muchísimas páginas por escribir.</p>
+  <h3>Te amo, Michelle. ❤️</h3>
+  <p>Que nos queden muchísimas páginas por escribir.</p>
 </section>
 
 <footer>
- Hecho con amor por Marvin · 04 de noviembre
+  Hecho con amor por Marvin · 04 de noviembre
 </footer>
 
 </main>
@@ -415,27 +418,23 @@ footer{
 <script>
 document.addEventListener("DOMContentLoaded", function() {
 
- const openButton = document.getElementById("open");
- const cover = document.getElementById("cover");
- const story = document.getElementById("story");
+  const openButton = document.getElementById("open");
+  const cover = document.getElementById("cover");
+  const story = document.getElementById("story");
 
- if (openButton && cover && story) {
+  if (openButton && cover && story) {
+    openButton.addEventListener("click", function() {
+      cover.style.display = "none";
+      story.style.display = "block";
 
-  openButton.addEventListener("click", function() {
-
-   cover.style.display = "none";
-   story.style.display = "block";
-
-   window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-   });
-
-  });
-
- } else {
-  console.error("No se encontraron los elementos.");
- }
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  } else {
+    console.error("No se encontraron los elementos.");
+  }
 
 });
 </script>
